@@ -182,6 +182,23 @@ $$
 $$
 \end{Prop}
 
+\subsection{Fragestellung - Multinomialkoeffizient}
+Wieviele Zeichenketten kann man aus den Buchstaben des Wortes BANANE bilden? Man kann aus 
+6 Buchstaben 6! verschiedene Anordnungen (=720) bilden. Dabei wird aber jedes  Wort 4 mal vorhanden sein,
+ da die Buchstaben $N$ und $A$ je zweimal vorkommen. Die Anzahl der Möglichkeiten ist also 
+ $\frac{6!}{1! 2! 2! 1!}=180$. \begin{Def} Sei $k_1+ \ldots + k_m = n$. Der Multinomialkoeffizient ist definiert als
+$$
+\binom{n}{k_1, k_2, \ldots, k_m}:=\frac{n!}{k_1 k_2! \ldots k_m!}.
+$$
+
+\end{Def}
+
+Der Multinomialkoeffizient beschreibt also die Anzahl der Möglichkeiten, $n$ Objekte, von denen jeweils
+$k_i$ nicht unterscheidbar sind, anzuordnen. Im Falle $m=2$ erhalten wir wieder den Binomialkoeffizienten.
+
+$\binom{n}{k}$ und der Binomialsatz haben dann folgende Verallgemeinerungen:
+
+
 \begin{Sa}[Multinomialsatz]. Sei $n \in \N$. Dann ist
 $$
 \sum_{\substack{i=1 \\ k_i\ge1}}^{m}\binom{n-1}{k_1, \dots, k_{i-1}, k_i-1, k_{i+1}, \dots, k_m} = \binom{n}{k_1, \dots, k_m}, 
