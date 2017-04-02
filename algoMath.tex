@@ -5,6 +5,7 @@
 \usepackage{ngerman}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{array}
 \setlength{\parindent}{0em} 
 \newcommand{\N}{\mathbb{N}}
 \newtheorem{Sa}{Satz}[section]
@@ -90,12 +91,31 @@ $$
 Somit hat $X$ 16 Teilmengen. Die Anzahl der ungeraden\footnote{ungerade Anzahl von Objekten in der Teilmenge} Teilmengen wird mit $2^{|X|-1}$ berechnet. Der gerade Anteil hat die selbe Größe. Die Menge $X$
 hat somit $2^{4-1}=2^3=8 \text{ gerade und } 8 \text{ ungerade Teilmengen}$.
 
+\subsection{Übersicht}
+Für die Anzahl der Möglichkeiten, aus $n$ Objekten $k$ auszuwählen, gilt: \\
+
+
+\begin{centering}
+\begin{tabular}{l|p{4.5cm}|p{4.5cm}}
+Auswahl... & \textbf{mit} Beachtung der Reihenfolge (Variation) & \textbf{ohne} Beachtung der Reihenfolge (Kombination) \\
+\hline
+\textbf{ohne} Zurücklegen &  $$\frac{n!}{(n-k)!}$$  & $$\binom{n}{k}$$  \\
+\hline
+\textbf{mit} Zurücklegen & $$n^k$$ & $$\binom{n+k-1}{k}$$ \\
+
+\end{tabular}
+\end{centering}
+
+
 \section{Propositionen, Korollare, Sätze}
 \textbf{Proposition.} Seien $n, m \in \N, m \ge 1$ und $A$ eine $n$-elementige Menge und $R$ eine $m$-elementige Menge. Dann ist die Anzahl aller Abbildungen $f:A \Rightarrow R$ gerade $m^n$.
 
 \textbf{Korollar.} Sei $X$ eine $n$-elementige Menge, $n \in \N$. Dann hat $X$ genau $2^n$ Teilmengen, oder als Formel
 
 $$|2^X|=2^{|X|}$$
+
+
+
 
 
 \textbf{Proposition.} Sei  $n \ge 1$. Jede n-elementige Menge hat genau $2^{(n-1)}$ Teilmengen mit ungerade vielen Elementen und ebenso viele mit gerade vielen Elementen. 
