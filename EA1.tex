@@ -1,0 +1,93 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{german,fancyheadings}
+\pagestyle{fancy}
+%\setlength{\parindent}{0em} 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\M}{$\times$}
+\newtheorem{Sa}{Satz}[subsection]
+\newtheorem{Kor}{Korollar}[subsection]
+\newtheorem{Prop}{Proposition}[subsection]
+\newtheorem{Def}{Definition}[subsection]
+\lhead{Marcel Benders - Matrikelnummer: 5431760}
+
+
+\begin{document}
+
+\section{E 1.1}
+--
+
+\section{E 1.2}
+--
+
+\section{E 1.3}
+\subsection{a}
+--
+\subsection{b}
+Frage: Wieviele Hochzeiten (bezüglich $F$ und $M$) gibt es (abhängig von $n$)? \\
+
+Die Kardinalität beider Mengen $F$ und $M$ ist $n$, also $|F| =|M| = n$. Aus diesen beiden Mengen
+lassen sich $n$ disjunkte Paarmengen bilden, also gibt es $n$ Hochzeiten.
+
+
+Möchte man die Möglichkeiten verschiedener Hochzeiten - wenn alle Teilnehmer heiraten -
+ wissen, berechnet man die Fakultät, also $n!$ .
+
+\subsection{c}
+Es ist zu Zeigen wie viele Möglichkeiten es gibt. Bei dem Spiel werden $n$ Fragen gestellt. Angenommen
+man kennt die richtigen Antworten und darf nicht falsch antworten.Dann kann entweder mit ja,nein oder
+aussetzen geantwortet werden also $k=3$. Somit folgt, dass es $k^n$ verschiedene Möglichkeiten gibt dieses
+Spiel zu spielen. 
+
+\section{E 1.4}
+--
+
+\section{E 1.5}
+--
+
+
+\section{E 1.6}
+\subsection{a}
+Es haben 150 Personen an der Klausur teilgenommen. Daraus ergibt sich folgendes:
+\begin{equation}
+\frac{150}{365} \approx 0,4109 \approx 41 \%.
+\end{equation}
+Die Wahrscheinlickeit beträgt $\approx 41\%$.
+
+\subsection{b}
+Zuerst wird ermittelt, wie groß die Wahrscheinlickeit an einem Korrekturtag ist. An einem Tag werden
+30 Klausuren korrigiert. Daraus ergibt sich folgendes:
+
+\begin{equation}
+\frac{30}{365} \approx 0,08219. 
+\end{equation}
+
+Es besteht somit die Wahrscheinlickeit von $\approx 8\%$, dass jemand von den 30 Teilnehmern am
+selben Tag Geburtstag hat. Dies muss jetzt noch in Relation zu den 5 Tagen gesetzt werden:
+
+\begin{equation}
+\frac{1}{5} = 0,2.
+\end{equation}
+
+
+Nun werden die beiden Werte Multipliziert:
+
+\begin{equation}
+0,2 \cdot 0,08219 \approx 0,0164.
+\end{equation}
+
+Somit hat man eine Wahrscheinlickeit von $\approx 1,6\%$, dass an jedem der 5 Korrekturtage mindestens
+einer der Teilnehmer am selben Tag wie der Korrektor Geburtstag hat.
+
+\section{E 1.7}
+Karten $n=5, \text{asse}=2, \text{luschen}=3$ zwei Karten ziehen
+
+
+
+\end{document}
