@@ -7,8 +7,9 @@
 \usepackage{amssymb}
 \usepackage{array}
 \usepackage{german,fancyheadings}
+\usepackage{eurosym}
 \pagestyle{fancy}
-%\setlength{\parindent}{0em} 
+\setlength{\parindent}{0em} 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\M}{$\times$}
 \newtheorem{Sa}{Satz}[subsection]
@@ -20,81 +21,106 @@
 
 \begin{document}
 
-\section{E 1.1}
+\section*{E 1.1}
 --
 
-\section{E 1.2}
-\subsection{a}
+\section*{E 1.2}
+\subsection*{a}
 Die Zerlegung in disjunkte Zyklen sieht folgendermaßen aus:
 
-\begin{equation}
-\sigma_1 =
-\bigl(\begin{smallmatrix}
+\begin{equation*}
+\sigma_1 = \bigl( \begin{smallmatrix}
 1 & 3 & 9 & 5  \\
 3 & 9 & 5 & 16 
-\end{smallmatrix}\bigr) = \bigl  < 1 \; 3\; 9\; 5\; 16 \bigr >
-\end{equation}
+\end{smallmatrix}\bigr) = \bigl  < 1 \; 3\; 9\; 5\; 16 \bigr > 
+\end{equation*}
 
-\begin{equation}
-\sigma_2 =
-\bigl(\begin{smallmatrix}
+\begin{equation*}
+\sigma_2 = \bigl( \begin{smallmatrix}
 2  & 13 \\
 13 & 11
-\end{smallmatrix}\bigr) = \bigl < 2\; 13\; 11 \bigr >
-\end{equation}
+\end{smallmatrix} \bigr) = \bigl < 2\; 13\; 11 \bigr >
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 \sigma_3 =
 \bigl(\begin{smallmatrix}
 4  \\
 18
 \end{smallmatrix}\bigr) = \bigl < 4\; 18 \bigr >
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 \sigma_4 =
 \bigl(\begin{smallmatrix}
 6  & 20 & 14 & 19 & 21\\
 20 & 14 & 19 & 21 & 12
 \end{smallmatrix}\bigr) = \bigl < 6 \; 20\; 14\; 19\; 21\; 12 \bigr >
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 \sigma_5 =
 \bigl(\begin{smallmatrix}
 7  & 10 \\
 10 & 15
 \end{smallmatrix}\bigr) = \bigl < 7\; 10\; 15 \bigr >
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 \sigma_6 =
 \bigl(\begin{smallmatrix}
 8 \\
 8
 \end{smallmatrix}\bigr) = \bigl < 8 \bigr >
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 \sigma_7 =
 \bigl(\begin{smallmatrix}
 17 \\
 17
 \end{smallmatrix}\bigr) = \big < 17 \big >
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
 \sigma_8 =
 \bigl(\begin{smallmatrix}
 22 \\
 22
 \end{smallmatrix}\bigr) = \bigl < 22 \bigr >
-\end{equation}
+\end{equation*}
 
-\section{E 1.3}
-\subsection{a}
+\subsection*{b}
+Zu Zeigen ist die Zerlegung von $\binom{26}{11}$ in Primfaktoren. Zuerst setzen wir die Zahlen
+ein und erhalten somit
+\begin{equation*}
+\binom{26}{11} = \frac{26!}{11!(26-11)!} = \frac{26!}{11!15!}.
+\end{equation*}
+Anschließend kürzen wir die Fakultäten und erhalten ausgeschrieben folgenden Bruch:
+\begin{equation*}
+\frac{16 \cdot 17 \cdot 18 \cdot 19 \cdot 20 \cdot 21 \cdot 22 \cdot 23 \cdot 24 \cdot 25 
+\cdot 26}{2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 \cdot 7 \cdot 8 \cdot 9 \cdot 10 \cdot 11}.
+\end{equation*}
+
+Durch geschicktes kürzen erhalten wir folgende Faktoren:
+\begin{equation*}
+2 \cdot 17 \cdot 3 \cdot 19 \cdot 2 \cdot 23 \cdot 3 \cdot 5 \cdot 26.
+\end{equation*}
+
+Nun muss noch die 26 zerlegt werden und wir erhalten somit mit
+\begin{equation*}
+2 \cdot 2 \cdot 2 \cdot 3 \cdot 3 \cdot 5 \cdot 13 \cdot 17 \cdot 19 \cdot 23 = 2^3  \cdot  3^2  \cdot 5  \cdot 13 \cdot 17 \cdot 19 \cdot 23.
+\end{equation*}
+die gewünschte Primfaktorzerlegung.
+\subsection*{c}
 --
-\subsection{b}
+
+\subsection*{d}
+--
+\section*{E 1.3}
+\subsection*{a}
+--
+\subsection*{b}
 Frage: Wieviele Hochzeiten (bezüglich $F$ und $M$) gibt es (abhängig von $n$)? \\
 
 Die Kardinalität beider Mengen $F$ und $M$ ist $n$, also $|F| =|M| = n$. Aus diesen beiden Mengen
@@ -104,72 +130,147 @@ lassen sich $n$ disjunkte Paarmengen bilden, also gibt es $n$ Hochzeiten.
 Möchte man die Möglichkeiten verschiedener Hochzeiten - wenn alle Teilnehmer heiraten -
  wissen, berechnet man die Fakultät, also $n!$ .
 
-\subsection{c}
+\subsection*{c}
 Es ist zu Zeigen wie viele Möglichkeiten es gibt. Bei dem Spiel werden $n$ Fragen gestellt. Angenommen
 man kennt die richtigen Antworten und darf nicht falsch antworten.Dann kann entweder mit ja,nein oder
 aussetzen geantwortet werden also $k=3$. Somit folgt, dass es $k^n$ verschiedene Möglichkeiten gibt dieses
 Spiel zu spielen. 
 
-\section{E 1.4}
+\section*{E 1.4}
 --
 
-\section{E 1.5}
+\section*{E 1.5}
 --
 
 
-\section{E 1.6}
-\subsection{a}
+\section*{E 1.6}
+\subsection*{a}
 Es haben 150 Personen an der Klausur teilgenommen. Daraus ergibt sich folgendes:
-\begin{equation}
+\begin{equation*}
 \frac{150}{365} \approx 0,4109 \approx 41 \%.
-\end{equation}
+\end{equation*}
 Die Wahrscheinlickeit beträgt $\approx 41\%$.
 
-\subsection{b}
+\subsection*{b}
 Zuerst wird ermittelt, wie groß die Wahrscheinlickeit an einem Korrekturtag ist. An einem Tag werden
 30 Klausuren korrigiert. Daraus ergibt sich folgendes:
 
-\begin{equation}
+\begin{equation*}
 \frac{30}{365} \approx 0,08219. 
-\end{equation}
+\end{equation*}
 
 Es besteht somit die Wahrscheinlickeit von $\approx 8\%$, dass jemand von den 30 Teilnehmern am
 selben Tag Geburtstag hat. Dies muss jetzt noch in Relation zu den 5 Tagen gesetzt werden:
 
-\begin{equation}
+\begin{equation*}
 \frac{1}{5} = 0,2.
-\end{equation}
+\end{equation*}
 
 
 Nun werden die beiden Werte Multipliziert:
 
-\begin{equation}
-0,2 \cdot 0,08219 \approx 0,0164.
-\end{equation}
+\begin{equation*}
+\frac{30}{365} \cdot \frac{1}{5} = \frac{30}{365 \cdot 5} = \frac{30}{1825} \approx 0,01644.
+\end{equation*}
 
 Somit hat man eine Wahrscheinlickeit von $\approx 1,6\%$, dass an jedem der 5 Korrekturtage mindestens
 einer der Teilnehmer am selben Tag wie der Korrektor Geburtstag hat.
 
-\section{E 1.7}
-Karten $n=5, \text{asse}=2, \text{luschen}=3$ zwei Karten ziehen und nicht zurücklegen. Es muss der Binomialkoeffizient
+\section*{E 1.7}
+Die Kardinalität der Menge aus der wir 2 Karten ziehen beträgt 5. Wir ziehen zeitgleich. Es muss der Binomialkoeffizient
 benutzt werden.
 
-Es gibt 
+Daraus ergeben sich
 
-\begin{equation}
-\binom{5}{2} = \frac{5!}{2!(5-2)!} = \frac{ 4 \cdot 5}{2} = 10
-\end{equation}
+\begin{equation*}
+|\Omega| = \binom{5}{2} = \frac{5!}{2!(5-2)!} = \frac{ 4 \cdot 5}{2} = 10
+\end{equation*}
 
 verschiedene Möglichkeiten zwei Karten aus dem 5er Set zu ziehen.
 
-\subsection{a}
+\subsection*{a}
 \begin{itemize}
-    \item Die Wahrscheinlickeit für zwei Asse ist
-    \begin{equation}
-    \frac{2}{5} = 0,4 = 40\%.
-    \end{equation}
+    \item Nun muss die Wahrscheinlichkeit des Ereignisses "`es werden zwei Asse gezogen"' berechnet 
+    werden. Die Möglichkeiten aus 2 Assen 2 Asse zu ziehen beträgt
+    
+    \begin{equation*}
+    |A| = \binom{2}{2} = 1.
+    \end{equation*}
+
+    Insgesamt liegt die Wahrscheinlichkeit bei
+    \begin{equation*}
+    P(A) = \frac{|A|}{| \Omega |} = \frac{1}{10} = 0,1
+    \end{equation*}
+    also 10\%, 2 Asse aus dem gemischten Kartenset zu ziehen.
+
+    \item Es folgt die Berechnung der Wahrscheinlichkeit "`es werden zwei Luschen gezogen"'.
+    Die Möglichkeiten aus 3 Luschen 2 zu ziehen beträgt
+
+    \begin{equation*}
+    |A| = \binom{3}{2} = 3.
+    \end{equation*}
+
+    Die Wahrscheinlichkeit liegt somit bei
+    \begin{equation*}
+    P(A) = \frac{|A|}{| \Omega |} = \frac{3}{10} = 0,3,
+    \end{equation*}
+    also 30\%, 3 Luschen aus dem gemischten Kartenset zu ziehen.
+
+    \item Und nun die Berechnung der Wahrscheinlichkeit "`genau ein Ass und eine Lusche werden gezogen"'.
+    Dazu subtrahieren wir die beiden bisherigen Ergebnisse von 1:
+    \begin{equation*}
+    1 - 0,3 - 0,1 = 0,6.
+    \end{equation*}
+    Wir erhalten also eine 60\%ige Wahrscheinlichkeit, 1 Lusche und 1 Ass aus dem gemischten Kartenset zu ziehen.
 
 \end{itemize}
 
+\subsection*{b}
+Dazu muss der Erwartungswert berechnet werden. Es gibt 3 mögliche Gewinne/Verluste mit den
+Werten 20, 5, -30. Diese treten mit den Wahrscheinlichkeiten 0,1, 0,6 und 0,3 auf. Der 
+Erwartungswert $\mu$ ist somit
 
+\begin{equation*}
+\mu = 0,1 \cdot 20 + 0,6 \cdot 5 + 0,3 \cdot -30 = -4.
+\end{equation*}
+
+Spielen wir sehr oft, verlieren wir \EUR{4} pro Spiel.
+\subsection*{c}
+In der zweiten Runde ändert sich die Wahrscheinlichkeit. Im Spiel verbleiben 1 Ass und 3 Luschen.
+Die Wahrscheinlichkeit das Ass zu ziehen beträgt
+
+\begin{equation*}
+\frac{1}{4} = 0,25.
+\end{equation*}
+
+Dementsprechend liegt die Wahrscheinlichkeit eine Lusche zu ziehen bei 0,75. Der Erwartungswert $\mu$ setzt sich nun wiefolgt zusammen:
+
+\begin{equation*}
+\mu = \underbrace{ 0,1 \cdot 20}_{\text{zwei Asse}} + \underbrace{(0,6 \cdot 0,75) \cdot 5}_{\text{zwei Luschen 2. Versuch}} +  \underbrace{(0,6 \cdot 0,25) \cdot (20+5)}_{\text{zwei Asse 2. Versuch}}   + \underbrace{0,3 \cdot -30}_{\text{zwei Luschen}}  = -1.
+\end{equation*}
+
+Bei dieser Regel Beträgt der Verlust pro Spiel bei vielen Spielen \EUR{1}.
+
+
+
+
+\subsection*{d}
+Fogendes haben wir in Teil b errechnet:
+
+\begin{eqnarray*}
+\mu &=& 0,1 \cdot 20 + 0,6 \cdot 5 + 0,3 \cdot -30  \\
+    &=& 2 + 3 + -9  \\
+    &=& 5 - 9 \\
+    &=& -4.
+\end{eqnarray*}
+
+
+Damit das Spiel fair ist, brauchen wir anstatt der -9 eine -5. 
+\begin{eqnarray*}
+0,3 \cdot x &=& -5 \\
+x           &=& \frac{-5}{0,3} \\
+x           &=& -16 \frac{2}{3}.
+\end{eqnarray*}
+
+Das Ergebnis $-16 \frac{2}{3}$ ist rational -- jedoch nicht realistisch.
 \end{document}
