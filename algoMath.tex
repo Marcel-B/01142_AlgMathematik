@@ -218,6 +218,25 @@ $$
 	\caption{Übersicht Kombinatorik}
 	\label{img:grafik-dummy}
 \end{figure}
+
+\section{Graphen}
+Die Konten eines vollständigen Graphen sind alle miteinander verbunden. Es gibt $\binom{n}{2}, n \in \N, n = |V|$ Kanten.
+Als Beispiel nehmen wir den vollständigen Graphen $K_6$. Er hat $\binom{6}{2} = 15$ Kanten. Jetzt betrachten wir nur noch
+die 6 Knoten. Daraus lassen sich $2^{\binom{6}{2}} = 2^{15} = 32768$ verschiedene Graphen zeichnen. Aber diese "`Teilgraphen"'
+enthalten isomorphe Varianten. Es können z.B. aus $\{1, 2, 3\}$ 3 isomorphe Graphen gezeichnet werden ($2^{\binom{3}{2}} = 2^{3} = 8$
+ mögliche Graphen). 
+
+Es gibt von jedem Graphen \textit{höchstens} $n!$, also im Besipiel $6! = 720$ isomorphe Varianten, aber \textit{mindestens} 
+
+$$
+\frac{2^{\binom{n}{2}}}{n!} = \frac{32768}{720} \approx 45,5
+$$ 
+
+paarweise nicht isomorphe Graphen.
+
+
+\section{Breitensuche}
+
 \end{document}
 \grid
 
