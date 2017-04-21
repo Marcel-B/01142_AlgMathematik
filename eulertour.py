@@ -1,4 +1,4 @@
-print "euler"
+print("euler")
 vertex=PickVertex()
 T = []
 HatT = []
