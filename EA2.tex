@@ -1,0 +1,337 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{german}
+\usepackage{tikz}
+\usepackage{fancyheadings}
+\usepackage{eurosym}
+\usepackage[left=2cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+\usepackage{listings}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\M}{$\times$}
+\lstset{language=C++}
+\lstset{backgroundcolor = \color{lightgray}, xleftmargin = 0.5cm, framexleftmargin = 1em}
+\pagestyle{fancy}
+\setlength{\parindent}{0em}
+\newtheorem{Sa}{Satz}[subsection]
+\newtheorem{Kor}{Korollar}[subsection]
+\newtheorem{Prop}{Proposition}[subsection]
+\newtheorem{Def}{Definition}[subsection]
+\lhead{Marcel Benders}
+\rhead{Matrikelnummer: 5431760}
+\cfoot{Algorithmische Mathematik - KE 2}
+\begin{document}
+
+
+
+
+\section*{EA 2.1}
+Sei $G=(V, E)$ mit $|V|=n > 2$ der Graph $P_n$. Sei $v_0 \in V$ mit $deg_{v_0}(1)$.
+Entfernt man nun $v_0$, erhält man den Graphen $P_{n-1}$, welcher auch ein zusammenhängender Graph ist.
+
+Zur Veranschaulichung auf Abbildung \ref{img:grafik-du} Ein Graph mit $|V|=3$. Zur Linken ist $P_3$ zu sehen. 
+Wird der Knoten rechts unten entfernt, welcher vom Grad 1 ist, erhält man den rechten Graphen, $P_2$. 
+
+
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{EA2_Abb1}}
+	\caption{links: $P_3$, rechts $P_2$}
+	\label{img:grafik-du}
+\end{figure}
+
+Betrachten wir nun einen Graphen mit $|V|=1$ und prüfen, ob der Graph beim entfernen von
+$x \in V$ aus mehreren Komponenten besteht. Entfernt man den einzigen Knoten, so gibt es keine
+Komponenten mehr und somit keinen Graphen.
+
+Betrachtetn man einen Graphen mit $|V|=2$ und entfernt $x \in V$, dann bleibt ein einzelner
+Knoten übrig. Der Graph besteht dann nur aus einer Komponente und ist somit zusammenhängend.
+
+
+\section*{EA 2.2}
+\subsection*{a}
+
+Gegeben sei der Graph $K_{2,3}$ aus Abbildung \ref{img:grafik-dummy}. Zu Zeigen: Wieviele verschiedene Spatziergänge der Länge $8$ gibt es von $v$ nach $w$?
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{EA2_Abb2}}
+	\caption{$K_{2,3}$}
+	\label{img:grafik-dummy}
+\end{figure}
+
+
+Dies zeigen wir mit Hilfe der Adjazanzmatrix $A$ zu $K_{2,3}$ und \textbf{Proposition 3.5.3}.
+Knoten 1 und 2 entsprechen hierbei $v$ und $w$:
+
+\begin{eqnarray*}
+A &=& \left(
+\begin{array}{lllll}
+0 & 0 & 1 & 1 & 1 \\
+0 & 0 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0
+\end{array}
+\right)   \\ 
+ A^8  &=& \text{Anzahl Spaziergänge } \\
+ A^2 = AA &=& 
+\left( \begin{array}{lllll}
+0 & 0 & 1 & 1 & 1 \\
+0 & 0 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0
+\end{array} \right) 
+\left( \begin{array}{lllll}
+0 & 0 & 1 & 1 & 1 \\
+0 & 0 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0 \\
+1 & 1 & 0 & 0 & 0
+\end{array}
+\right)  =
+\left( \begin{array}{lllll}
+3 & 3 & 0 & 0 & 0 \\
+3 & 3 & 0 & 0 & 0 \\
+0 & 0 & 2 & 2 & 2 \\
+0 & 0 & 2 & 2 & 2 \\
+0 & 0 & 2 & 2 & 2
+\end{array}
+\right) \\
+A^4 = A^2A^2 &=& \left( \begin{array}{lllll}
+3 & 3 & 0 & 0 & 0 \\
+3 & 3 & 0 & 0 & 0 \\
+0 & 0 & 2 & 2 & 2 \\
+0 & 0 & 2 & 2 & 2 \\
+0 & 0 & 2 & 2 & 2
+\end{array}
+\right) \left( \begin{array}{lllll}
+3 & 3 & 0 & 0 & 0 \\
+3 & 3 & 0 & 0 & 0 \\
+0 & 0 & 2 & 2 & 2 \\
+0 & 0 & 2 & 2 & 2 \\
+0 & 0 & 2 & 2 & 2
+\end{array}
+\right) = \left( \begin{array}{lllll}
+18 & 18 & 0 & 0 & 0 \\
+18 & 18 & 0 & 0 & 0 \\
+0 & 0 & 12 & 12 & 12 \\
+0 & 0 & 12 & 12 & 12 \\
+0 & 0 & 12 & 12 & 12
+\end{array}
+\right) \\
+A^8 = A^4A^4 &=& \left( \begin{array}{lllll}
+18 & 18 & 0 & 0 & 0 \\
+18 & 18 & 0 & 0 & 0 \\
+0 & 0 & 12 & 12 & 12 \\
+0 & 0 & 12 & 12 & 12 \\
+0 & 0 & 12 & 12 & 12
+\end{array}
+\right) \left( \begin{array}{lllll}
+18 & 18 & 0 & 0 & 0 \\
+18 & 18 & 0 & 0 & 0 \\
+0 & 0 & 12 & 12 & 12 \\
+0 & 0 & 12 & 12 & 12 \\
+0 & 0 & 12 & 12 & 12
+\end{array}
+\right) \\ &=&
+\left( \begin{array}{lllll}
+648 & 648 & 0 & 0 & 0 \\
+648 & 648 & 0 & 0 & 0 \\
+0 & 0 & 432 & 432 & 432 \\
+0 & 0 & 432 & 432 & 432 \\
+0 & 0 & 432 & 432 & 432
+\end{array}
+\right)
+\end{eqnarray*}
+
+Wie man der Matrix entnehmen kann, gibt es $A_{1,2} = A_{2,1} = 648$ Möglichkeiten für 
+Spaziergänge der Länge 8 zwischen $v$ und $w$.
+
+\subsection*{b}
+--
+
+\section*{EA 2.3}
+\subsection*{a}
+--
+
+\subsection*{b}
+--
+
+\subsection*{c}
+--
+
+\section*{EA 2.4}
+Ob es sich bei den gegebenen Sequenzen um Valenzsequenzen handelt, kann man mit dem
+Verfahren nach \textit{Havel und Hakimi} prüfen. 
+\subsection*{a}
+Gegeben ist folgende Sequenz:
+
+\begin{equation*}
+S_1 = (2, 3, 8, 8, 2, 9, 3, 8, 3, 2)
+\end{equation*}
+
+Als erstes muss die Sequenz absteigend sortiert werden, wir erhalten:
+
+\begin{equation*}
+S_1 = (9, 8, 8, 8, 3, 3, 3, 2, 2, 2)
+\end{equation*}
+
+Der erste Eintrag wird entfernt. Von den folgenden 9 Einträgen wird 1 subtrahiert:
+
+
+\begin{tabbing}
+xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxxxxxxxxxxxx\kill
+9   \> 8   \> 8   \> 8   \> 3   \> 3   \> 3   \> 2   \> 2   \> 2   \\
+    \> -1  \> -1  \> -1  \> -1  \> -1  \> -1  \> -1  \> -1  \> -1  \> sub\\
+    \> 7   \> 7   \> 7   \> 2   \> 2   \> 2   \> 1   \> 1   \> 1   \\
+    \>     \> -1  \> -1  \> -1  \> -1  \> -1  \> -1  \>  -1 \> 0   \> sub\\
+    \>     \> 6   \> 6   \> 1   \> 1   \> 1   \> 0   \> 0   \> 1   \> sortieren \\
+    \>     \> 6   \> 6   \> 1   \> 1   \> 1   \> 1   \> 0   \> 0   \>  \\
+    \>     \>     \> -1  \> -1  \> -1  \> -1  \> -1  \> -1  \> 0   \> sub\\
+    \>     \>     \> 5   \> 0   \> 0   \> 0   \> 0   \> -1  \> 0   \> WIDERSPRUCH
+ \end{tabbing}
+
+ Bei $S_1$ handelt es sich um keine Valenzssequenz, da es keinen negativen Knotengrad gibt.
+
+
+
+
+
+\subsection*{b}
+Gegeben ist folgende Sequenz:
+
+\begin{equation*}
+S_2 = (1, 2, 3, 6, 6, 3, 4, 1)
+\end{equation*}
+
+Als erstes muss die Sequenz absteigend sortiert werden, wir erhalten:
+
+\begin{equation*}
+S_2 = (6, 6, 4, 3, 3, 2, 1, 1)
+\end{equation*}
+
+
+
+\newpage
+
+
+
+
+Der erste Eintrag wird entfernt. Von den folgenden 9 Einträgen wird 1 subtrahiert:
+
+
+\begin{tabbing}
+xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxx \= xxxxxxxxxxxxx\kill
+6   \> 6   \> 4   \> 3   \> 3   \> 2   \> 1   \> 1   \\
+    \> -1  \> -1  \> -1  \> -1  \> -1  \> -1  \> 0  \> sub \\
+    \> 5   \> 3   \> 2   \> 2   \> 1   \> 0   \> 1  \> sort \\
+    \> 5   \> 3   \> 2   \> 2   \> 1   \> 1   \> 0  \>  \\
+    \>     \> -1  \> -1  \> -1  \> -1  \> -1  \> 0  \>  sub\\
+    \>     \> 2   \> 1   \> 1   \> 0   \> 0   \> 0  \> \\
+    \>     \>     \> -1  \> -1  \> 0   \> 0   \> 0  \> sub\\
+    \>     \>     \> 0   \> 0   \> 0   \> 0   \> 0  \>  \\
+ \end{tabbing}
+
+ Das Verfahren endet bei fünf isolierten Knoten. $S_2$ ist somit eine Valenzsequenz
+ (Abblidung \ref{img:grafik-dumm}).
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{EA2_abb3}}
+	\caption{$S_2$}
+	\label{img:grafik-dumm}
+\end{figure}
+
+
+\section*{EA 2.5}
+\subsection*{a}
+Der Breitensuchbaum $T_1$ von $G$:
+
+(1, 2, 3, 4, 5, 7, 8, 6, 9, 10, 11, 12, 13, 15, 16)
+
+\begin{figure}[h]
+	\centering
+     \scalebox{.5}{\input{EA2_Abb4}}
+	\caption{$T_1$ - (fette Kanten)}
+	\label{img:grafik-dmm}
+\end{figure}
+
+
+\subsection*{b}
+Der Tiefensuchbaum $T_2$ von $G$:
+
+(1, 2, 4, 7, 5, 3, 6, 8, 9, 10, 12, 15, 13, 11, 14, 16)
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{EA2_Abb5}}
+	\caption{$T_2$ - (fette Kanten)} 
+	\label{img:grafi-dmm}
+\end{figure}
+
+\subsection*{c}
+Es ist zu Zeigen, dass $T_1 \not\cong T_2$ gilt. Die Knoten von $T_1$ und $T_2$ haben unterschiedliche
+Grade. So gibt es ein $v \in T_1$, mit $deg_{v}(5)$, in $T_2$ ist der höchste Grad 2. Somit lassen
+sich durch Umnummerierung die Graphen nicht gleich darstellen. Sie können also nicht isomorph sein.
+
+
+\subsection*{d}
+Es ist zu Zeigen, dass $G$ eulersch ist. Dazu wenden wir \textbf{Satz 3.10.2} an.
+\\
+
+\begin{itemize}
+\item $G$ ist zusammenhängend und alle Knoten haben gerade Knotengrad:
+
+Alle Knoten sind untereinander durch Wege zu erreichen, also ist der Graph zusammenhängend. 
+Wir bilden eine Valenzsequenz und können ablesen, dass alle Knoten Gerade sind:
+$$
+(2, 6, 6, 2, 4, 2, 6, 6, 4, 4, 4, 2, 4, 2, 2, 2) .
+$$
+
+
+\item $G$ ist zusammenhängend und $E$ ist disjunkte Vereinigung von Kreisen:
+
+Folgende Kreise lassen sich bilden:
+
+\begin{eqnarray*}
+C_1&=&(1, 2), (2,4),(4,7),(7,9),(9,8),(8,6),(6,3),(3,1) \\
+C_2&=&(2,3),(3,8),(8,7),(7,2) \\
+C_3&=&(2,8),(8,5),(5,2) \\
+C_4&=&(3,5),(5,7),(7,3) \\
+C_5&=&(9,10),(10,12),(12,15),(15,13),(13,16),(16,14),(14,11),(11,9) \\
+C_6&=&(10,13),(13,11),(11,10).
+\end{eqnarray*}
+
+\end{itemize}
+
+Da die beiden oberen Punkte zutreffen, ist mit dem \textbf{Satz 3.10.2} bewiesen, dass $G$ 
+eulersch ist. \\
+
+Eine mögliche Eulertour ist:
+\begin{eqnarray*}
+(1, 2), (2, 4), (4,7),(7,9),(9,10),(10,12),(12,15),(15,13),(13,10),(10,11),(11,13), \\
+(13,16),(16,14),(14,11),(11,9),(9,8),(8,7),(7,3),(3,2),(2,8),(8,5),(5,2),(2,7),(7,5),\\
+(5,3),(3,8),(8,6),(6,3),(3,1). \\
+\end{eqnarray*}
+
+\newpage
+% das Abbildungsverzeichnis
+\listoffigures
+
+\end{document}
+
+
+
+
+
+
