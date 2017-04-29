@@ -7,8 +7,9 @@
 \usepackage{amssymb}
 \usepackage{array}
 \usepackage{german}
+\usepackage{subfigure} 
 \usepackage{tikz}
-\usepackage{fancyheadings}
+\usepackage{fancyhdr}
 \usepackage{eurosym}
 \usepackage[left=2cm, right=2cm, top=3cm, bottom=2cm]{geometry}
 \usepackage{listings}
@@ -331,75 +332,46 @@ Eine mögliche Eulertour ist:
 
 Folgende Graphen $G_n, n \in \N, n < 11$ mit $|V| = 1 \le i \le 6$ induzieren nicht die  in der Aufgabe angegebenen Graphen.
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.3}{\input{EA2_Abb6}}
-	\caption{$G_1$} 
-	\label{img:grafi-dm}
-\end{figure}
 
-\begin{figure}[h]
+%einbinden einer Grafik 
+\begin{figure}[h] 
 	\centering
-	\scalebox{.3}{\input{EA2_Abb7}}
-	\caption{$G_2$} 
-	\label{img:grafi-d}
-\end{figure}
+    \subfigure[$G_1$]{\scalebox{.7}{\input{EA2_Abb6}}} 
+	\hspace{1cm}
+    \subfigure[$G_2$]{\scalebox{.7}{\input{EA2_Abb7}}} 
+	\hspace{1cm}
+	\subfigure[$G_3$]{\scalebox{.7}{\input{EA2_Abb8}}}
+%\caption{Titel unterm gesamten Bild} 
+\end{figure} 
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.3}{\input{EA2_Abb8}}
-	\caption{$G_3$} 
-	\label{img:grafi-}
-\end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h] 
 	\centering
-	\scalebox{.3}{\input{EA2_Abb9}}
-	\caption{$G_4$} 
-	\label{img:grafi}
-\end{figure}
+    \subfigure[$G_4$]{\scalebox{.7}{\input{EA2_Abb9}}} 
+	\hspace{1cm}
+    \subfigure[$G_5$]{\scalebox{.7}{\input{EA2_Abb10}}} 
+	\hspace{1cm}
+	\subfigure[$G_6$]{\scalebox{.7}{\input{EA2_Abb11}}}
+%\caption{Titel unterm gesamten Bild} 
+\end{figure} 
 
-\begin{figure}[h]
+\newpage
+\begin{figure}[h] 
 	\centering
-	\scalebox{.3}{\input{EA2_Abb10}}
-	\caption{$G_5$} 
-	\label{img:graf}
-\end{figure}
+    \subfigure[$G_7$]{\scalebox{.7}{\input{EA2_Abb12}}} 
+	\hspace{2.5cm}
+    \subfigure[$G_8$]{\scalebox{.7}{\input{EA2_Abb13}}} 
+\end{figure} 
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.3}{\input{EA2_Abb11}}
-	\caption{$G_6$} 
-	\label{img:gra}
-\end{figure}
 
-\begin{figure}[h]
+\begin{figure}[h] 
 	\centering
-	\scalebox{.3}{\input{EA2_Abb12}}
-	\caption{$G_7$} 
-	\label{img:gr}
-\end{figure}
+    \subfigure[$G_9$]{\scalebox{.7}{\input{EA2_Abb14}}} 
+	\hspace{2.5cm}
+    \subfigure[$G_10$]{\scalebox{.7}{\input{EA2_Abb15}}} 
+\end{figure} 
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.3}{\input{EA2_Abb13}}
-	\caption{$G_8$} 
-	\label{img:grafi-dmmmm}
-\end{figure}
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.3}{\input{EA2_Abb14}}
-	\caption{$G_9$} 
-	\label{img:grafi-dmmolo}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-	\scalebox{.3}{\input{EA2_Abb15}}
-	\caption{$G_{10}$} 
-	\label{img:grafi-doom}
-\end{figure}
 
 
 
@@ -407,7 +379,7 @@ Folgende Graphen $G_n, n \in \N, n < 11$ mit $|V| = 1 \le i \le 6$ induzieren ni
 
 \begin{figure}[h]
 	\centering
-	\scalebox{.3}{\input{EA2_Abb16}}
+	\scalebox{.7}{\input{EA2_Abb16}}
 	\caption{$G$} 
 	\label{img:grafi-doom}
 \end{figure}
