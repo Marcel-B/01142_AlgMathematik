@@ -1,0 +1,156 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{german}
+\usepackage{subfigure} 
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{eurosym}
+\usepackage[left=2cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+\usepackage{listings}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\M}{$\times$}
+\lstset{language=C++}
+\lstset{backgroundcolor = \color{lightgray}, xleftmargin = 0.5cm, framexleftmargin = 1em}
+\pagestyle{fancy}
+\setlength{\parindent}{0em}
+\newtheorem{Sa}{Satz}[subsection]
+\newtheorem{Kor}{Korollar}[subsection]
+\newtheorem{Prop}{Proposition}[subsection]
+\newtheorem{Def}{Definition}[subsection]
+\lhead{Marcel Benders}
+\rhead{Matrikelnummer: 5431760}
+\cfoot{Algorithmische Mathematik - KE 2}
+\begin{document}
+\section*{E3.1}
+\subsection*{a}
+Um Bäume auf Isomorphie zu prüfen, muss man die im Kurstext vorgestellte Codierung verwenden. Ist die Codierung
+zweier Bäume gleich, sind die beiden Bäume isomorph. Zuerst muss das Zentrum gesucht werden. Dazu werden nacheinander die Blätter entfernt.
+In den dargestellten Bäumen bleibt jeweils der mittlere Knoten über, welchen wir als die Wurzel nehmen. Der Baum wird direkt sortiert,
+tiefer Geschatelte Knoten kommen auf die linke Seite. In Abbildung \ref{img:baum1} ist der Baum zu sehen.
+ 
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{ea3_1_abb1}}
+	\caption{$T_1$} 
+	\label{img:baum1}
+\end{figure}
+
+
+Von hier aus wird die Codierung gestartet, welche folgendermaßen aussieht:
+
+$$
+( \underbrace{ (((()())))}_{T_a}  \underbrace{ (((()) ())) }_{T_b}   \underbrace{ (((()) ())) }_{T_c} \underbrace{ (( (()) () )) }_{ T_d  }    )
+$$
+%( (((()) ()))  (((()) ()))  (( (()) () ))  (((()())))   )
+
+
+Analog gehen wir mit den restlichen Bäumen um.
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{ea3_1_abb2}}
+	\caption{$T_2$} 
+	\label{img:baum2}
+\end{figure} 
+
+Die Codierung von $T_2$:
+$$
+(    \underbrace{(((()())))}_{T_a} \underbrace{(((()())))}_{T_b}  \underbrace{(((())()))}_{T_c}    \underbrace{(((())()))}_{T_d}                   )
+$$
+
+\newpage
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{ea3_1_abb3}}
+	\caption{$T_3$} 
+	\label{img:baum3}
+\end{figure} 
+
+Die Codierung von $T_3$:
+$$
+(    \underbrace{(((()())))}_{T_a} \underbrace{(((()())))}_{T_b}  \underbrace{(((())()))}_{T_c}    \underbrace{(((())()))}_{T_d}                   )
+$$
+
+
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{ea3_1_abb1}}
+	\caption{$T_4$} 
+	\label{img:baum4}
+\end{figure}
+
+
+Die Codierung von $T_4$:
+
+$$
+( \underbrace{ (((()())))}_{T_a}  \underbrace{ (((()) ())) }_{T_b}   \underbrace{ (((()) ())) }_{T_c} \underbrace{ (( (()) () )) }_{ T_d  }    )
+$$
+
+
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{ea3_1_abb4}}
+	\caption{$T_5$} 
+	\label{img:baum5}
+\end{figure}
+
+
+Die Codierung von $T_5$:
+
+
+%(    (((()) (())))     (( (()) () ))    (( (()) () ))   ((()()))     )
+
+$$
+( \underbrace{ (((()) (())))}_{T_a}  \underbrace{ (( (()) () )) }_{T_b}   \underbrace{ (( (()) () )) }_{T_c} \underbrace{  ((()()))  }_{ T_d  }    )
+$$
+
+Vergleichen wir nun die verschiedenen Codes stellen wir fest dass sowohl $T_1 \text{ und } T_3$ als auch
+$T_2 \text{ und } T_4$ jeweils miteinander isomorph sind.
+
+\newpage
+
+\subsection*{b}
+
+\begin{itemize}
+\item (i) Gegeben ist folgender Code:
+$$
+( \underbrace{(\underbrace{(   \underbrace{(( () )  ( ()  ))}_{T_{1b}} () )}_{T_{1a}}    ()())}_{T_1}     \underbrace{(( \underbrace{(()())}_{T_{2a}}  )())}_{T_2}  \underbrace{(()()()())}_{T_3})
+$$
+Der dazugehörige Baum:
+
+\begin{figure}[h]
+	\centering
+	\scalebox{.5}{\input{ea3_1_abb5}}
+	\caption{$T_5$} 
+	\label{img:baum5}
+\end{figure}
+
+\item (ii) Gegeben ist der folgende Code:
+$$
+(((((())))) ((  \underbrace{() (())}_{\text{falsche Ordnung}}  ) ()() )  (()()())  (()) (()))
+$$
+Wegen falscher Ordnung handelt es sich um keinen Baum.
+
+\item (iii) Gegeben ist folgender Code:
+$$
+(((()) (())  (())  (  ()  (())  (())  (((())))  )
+$$
+Der Code ist nicht wohlgeklammert, also ist es kein Code von einem Baum.
+\end{itemize}
+
+\newpage
+
+
+\end{document}
