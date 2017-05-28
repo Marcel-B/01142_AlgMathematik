@@ -29,7 +29,8 @@
 \newtheorem{Def}{Definition}[subsection]
 \lhead{Marcel Benders}
 \rhead{Matrikelnummer: 5431760}
-\cfoot{Algorithmische Mathematik - KE 4}
+\rfoot{Algorithmische Mathematik - KE 4}
+% \lfoot{Algorithmische Mathematik - KE 4}
 \begin{document}
 
 \section*{E4.1}
@@ -274,8 +275,83 @@ L = \left ( \begin{array}{r r r r}
 \end{array}  \right ) 
 $$
 
+\newpage
+\subsection*{b}
+Es ist das Gleichungssystem $Ax=b$ mit $b = (1 ,1,0,-1)^T$ zu lösen. Dazu ziehen wir die
+$L$ und $U$ aus Aufgabenteil \textbf{a} heran. Man rechnet nacheinander:
 
 
+\begin{eqnarray*} 
+Ly = b \\
+Ux = y.
+\end{eqnarray*} 
+
+\begin{eqnarray*}
+\left ( \begin{array}{r r r r} 
+ 1	&	 0	& 0 & 0 \\
+-1  &  1  & 0 & 0 \\
+ 0  & -1  & 1 & 0 \\ 
+ 3  &  0  & -\frac{1}{2} & 1 \\ 
+\end{array}  \right )  
+\left ( \begin{array}{r} 
+ y_1 \\
+ y_2 \\
+ y_3  \\
+ y_4 \\ 
+\end{array}  \right ) 
+& = &
+\left ( \begin{array}{r} 
+ 1 \\
+ 1 \\
+ 0  \\ 
+ -1 \\ 
+\end{array}  \right ) \\
+y_1 & = & 1 				 \Rightarrow  y_1 = 1 \\
+-y_1 + y_2 & = & 1   \Rightarrow  y_2 = 2 \\
+-y_2 + y_3 & = & 0   \Rightarrow  y_3 = 2 \\
+3y_1 -\frac{1}{2}y_3 + y_4 & = & -1  \Rightarrow  y_4 = -3 ,\\
+\end{eqnarray*} 
+
+und weiter
+
+
+\begin{eqnarray*}
+\left ( \begin{array}{r r r r} 
+ 1	&	 -1	& 0 & 3 \\
+ 0  &  4  & -4 & 0 \\
+ 0  &  0  & 4 & -2 \\ 
+ 0  &  0  & 0 & 1 \\ 
+\end{array}  \right )  
+\left ( \begin{array}{r} 
+ x_1 \\
+ x_2 \\
+ x_3  \\
+ x_4 \\ 
+\end{array}  \right ) 
+& = &
+\left ( \begin{array}{r} 
+ 1 \\
+ 2 \\
+ 2  \\ 
+ -3 \\ 
+\end{array}  \right ) \\
+x_4 & = & -3 				  \Rightarrow  x_4 = -3 \\
+4x_3 - 2x_4 & = & 2   \Rightarrow  x_3 = -1 \\
+4x_2 - 4x_3 & = & 2   \Rightarrow  x_2 = - \frac{1}{2} \\
+x_1 - x_2 + 3x_4 & = & 1  \Rightarrow  x_1 = 9 \frac{1}{2}. \\
+\end{eqnarray*} 
+
+Somit haben wir die Lösung:
+$$
+x = (-3,-1,-\frac{1}{2},9 \frac{1}{2})^T.
+$$
+
+\subsection*{c}
+-- 
+\newpage
+
+\subsection*{d}
+Zu bestimmen ist die Cholesky-Faktorisierung von $A$
 
 % \begin{figure}[h]
 % 	\centering
