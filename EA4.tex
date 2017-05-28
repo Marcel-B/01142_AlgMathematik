@@ -7,17 +7,19 @@
 \usepackage{amssymb}
 \usepackage{array}
 \usepackage{german}
-\usepackage{subfigure} 
 \usepackage{tikz}
+\usepackage{subfigure} 
 \usepackage{fancyhdr}
 \usepackage{eurosym}
 \usepackage[left=2cm, right=2cm, top=3cm, bottom=2cm]{geometry}
 \usepackage{listings}
+\usepackage{hyperref}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\M}{$\times$}
-\lstset{language=C++}
+\newcommand{\rA}{$\rightarrow $ }
+\lstset{language=Pascal}
 \lstset{backgroundcolor = \color{lightgray}, xleftmargin = 0.5cm, framexleftmargin = 1em}
 \pagestyle{fancy}
 \setlength{\parindent}{0em}
@@ -100,11 +102,12 @@ $$
 	\end{array}
 \right )
 $$
-
+Mit den Zeilenumformungen
 \begin{itemize}
 \item Zeile 3 $ \cdot -1$
 \item Zeile 1 $ - 1 \cdot \text{Zeile } 2$
 \end{itemize}
+haben wir $A$ in Treppennormalform gebracht:
 
 $$
 \left(
@@ -127,29 +130,176 @@ A^{-1} = \left(
 \right )
 $$
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.5}{\input{ea3_1_abb1}}
-	\caption{$T_1$} 
-	\label{img:baum1}
-\end{figure}
+\subsection*{b}
+
+Wir erhalten $\text{cond}_1(A)$, indem wir $||A||_1 \cdot ||A^{-1}||_1$ berechnen. Zuerst ermitteln wir $||A||_1$: 
+
+\begin{eqnarray*}
+||A||_1 & = & max(S_1, S_2, S_3) \\
+S_1 & = & |1| + |2| + |0| =  3 \\
+S_2 & = & |1|+|-1|+|1|  =  3 \\
+S_3 & = & |3|+|2|+|1|  = 6 \Rightarrow  ||A||_1  =  6
+\end{eqnarray*}
+
+Anschließend wird noch $||A^{-1}||_1$ berechnet:
+
+\begin{eqnarray*}
+||A^{-1}||_1 & = & max(S_1, S_2, S_3) \\
+S_1 & = & |-3| + |-2| + |2| =  7 \\
+S_2 & = & |2|+|1|+|-1|  =  4 \\
+S_3 & = & |5|+|4|+|-3|  = 12 \Rightarrow  ||A^{-1}||_1  =  12
+\end{eqnarray*}
+
+Jetzt können wir $\text{cond}_1(A)$ berechnen:
+
+$$
+\text{cond}_1(A) = ||A||_1 \cdot ||A^{-1}||_1 = 6 \cdot 12 = 72
+$$
+
+Die Kondition der Matrix beträt \textbf{72}.
+
+\subsection*{c}
+Es sei das $Ax=b$ zu berechnen. Dies kann mit Umformung der erweiterten Koeffizientenmatrix geschehen.
+Da wir aber schon die inverse Matrix von $A$ haben, können wir das Ergebnis auch durch einfaches umstellen der Gleichung bestimmen:
+\begin{eqnarray*}
+b & = & Ax  \\
+ \Leftrightarrow  x & = & A^{-1} b = \left ( 
+	\begin{array}{r r r}
+		-3 & 2 & 8 \\
+		-2 & 1 & 4 \\
+		2  & -1 & -3 \\
+	\end{array}
+	\right)
+	\left ( 
+	\begin{array}{r}
+		23 \\
+		-47 \\
+		8 \\
+	\end{array}
+	\right) \\
+	& = &
+		\left ( 
+	\begin{array}{r}
+		123 \\
+		-61 \\
+		69 \\
+	\end{array}
+	\right)
+\end{eqnarray*}
+
+\newpage
 
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.5}{\input{ea3_1_abb2}}
-	\caption{$T_2$} 
-	\label{img:baum2}
-\end{figure} 
+
+\section*{E4.2}
+\subsection*{a}
+Eine LU-Zerlegung ist zu bestimmen. Es wird Zeilenweise eliminiert, der
+Faktor (zur Veranschaulichung eckig geklammert) wird in die entsprechnde Stelle geschrieben.
+
+$$
+\left(
+	\begin{array}{r r r r}
+		 1	 	&	 -1		&	  0		&	 3	\\
+		-1		&	  5		&	 -4		&	-3	\\
+		 0	 	&	 -4		&	  8		&	-2	\\
+		 3	 	&	 -3		&	 -2		&	11	\\
+	\end{array}
+\right )
+$$
+
+\begin{itemize}
+\item $\text{Zeile }2- [-1] \cdot \text{Zeile }1$
+\item $\text{Zeile }3- [0] \cdot \text{Zeile }1$
+\item $\text{Zeile }4- [3] \cdot \text{Zeile }1$
+\end{itemize}
+
+$$
+\left(
+	\begin{array}{r r r r}
+		 1	 	&	 -1		&	  0		&	 3	\\
+		\textbf{-1}		&	  4		&	 -4		&	 0	\\
+		 \textbf{0}	 	&	 -4		&	  8		&	-2	\\
+		 \textbf{3}	 	&	  0		&	 -2		&	 2	\\
+	\end{array}
+\right )
+$$
+
+\begin{itemize}
+\item $\text{Zeile }3- [-1] \cdot \text{Zeile }1$
+\item $\text{Zeile }4- [0] \cdot \text{Zeile }1$
+\end{itemize}
+
+$$
+\left(
+	\begin{array}{r r r r}
+		 1	 	&	 -1		&	  0		&	 3	\\
+		\textbf{-1}		&	  4		&	 -4		&	 0	\\
+		 \textbf{0}	 	&	 \textbf{-1}		&	  4		&	-2	\\
+		 \textbf{3}	 	&	 \textbf{0}		&	 -2		&	 2	\\
+	\end{array}
+\right )
+$$
+
+Mit
+\begin{itemize}
+\item $\text{Zeile }4- [ - \frac{1}{2} ] \cdot \text{Zeile }1$
+\end{itemize}
+ist die Umformung fertig und sieht folgendermaßen aus:
+
+$$
+\left(
+	\begin{array}{r r r r}
+		 1	 	&	 -1		&	  0		&	 3	\\
+		\textbf{-1}		&	  4		&	 -4		&	 0	\\
+		 \textbf{0}	 	&	 \textbf{-1}		&	  4		&	-2	\\
+		 \textbf{3}	 	&	 \textbf{0}		&	 \boldsymbol{-\frac{1}{2} }		&	 1	\\
+	\end{array}
+\right ) .
+$$
+
+Es lassen sich nun L und U ablesen:
+
+$$
+L = \left ( \begin{array}{r r r r} 
+ 1	&	 0	& 0 & 0 \\
+-1  &  1  & 0 & 0 \\
+ 0  & -1  & 1 & 0 \\ 
+ 3  &  0  & -\frac{1}{2} & 1 \\ 
+\end{array}  \right ) \text{ und } U = 
+\left ( \begin{array}{r r r r} 
+ 1	&	 -1	 &  0 &  3 \\
+ 0  &   4  & -4 &  0 \\
+ 0  &   0  &  4 & -2 \\ 
+ 0  &   0  &  0 &  1 \\ 
+\end{array}  \right ) 
+$$
 
 
 
-\begin{figure}[h]
-	\centering
-	\scalebox{.5}{\input{ea3_1_abb1}}
-	\caption{$T_4$} 
-	\label{img:baum4}
-\end{figure}
+
+% \begin{figure}[h]
+% 	\centering
+% 	\scalebox{.5}{\input{ea3_1_abb1}}
+% 	\caption{$T_1$} 
+% 	\label{img:baum1}
+% \end{figure}
+
+
+% \begin{figure}[h]
+% 	\centering
+% 	\scalebox{.5}{\input{ea3_1_abb2}}
+% 	\caption{$T_2$} 
+% 	\label{img:baum2}
+% \end{figure} 
+
+
+
+% \begin{figure}[h]
+% 	\centering
+% 	\scalebox{.5}{\input{ea3_1_abb1}}
+% 	\caption{$T_4$} 
+% 	\label{img:baum4}
+% \end{figure}
 
 
 
